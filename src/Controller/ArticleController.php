@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleController
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/")
@@ -20,6 +21,16 @@ class ArticleController
      */
     public function show($slug)
     {
-        return new Response(sprintf('All about Endgame in article: "%s"', $slug));
+        $comments = [
+            'Я съел нормальный камень один раз. Это НЕ на вкус, как бекон!',
+            'Woohoo! Я иду на полностью астероидную диету!',
+            'Я тоже люблю бекон! Купи немного с моего сайта! bakinsomebacon.com',
+        ];
+
+
+        return $this->render('article/show.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug)),
+            'comments' => $comments,
+        ]);
     }
 }
