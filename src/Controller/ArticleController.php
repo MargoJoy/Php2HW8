@@ -21,6 +21,5 @@ class ArticleController
     public function show($slug)
     {
         return new Response(sprintf('All about Endgame in article: "%s"', $slug));
-
     }
 }
