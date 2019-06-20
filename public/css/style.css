@@ -1,0 +1,25 @@
+.movie {
+    background: url("/images/base/kosmosBlack.jpg") no-repeat fixed ;
+    background-size: cover;
+
+}
+
+.movie .container .row{
+    height: 500px;
+    align-items: center;
+}
+/*.movie .container .row .col-md-6{
+    border: solid 1px #5eb5e0;
+}*/
+
+
+.movie .container .row .col-md-6 img{
+    width: 100%
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff1800;
+}

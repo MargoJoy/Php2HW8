@@ -3,21 +3,14 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/")
-     */
-    public function homepage()
-    {
-        return new Response('OMG!:My first page already! WOOO!');
-    }
-
-    /**
      * @Route("/news/{slug}")
+     * @param $slug
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function show($slug)
     {
@@ -27,6 +20,7 @@ class ArticleController extends AbstractController
             'Я тоже люблю бекон! Купи немного с моего сайта! bakinsomebacon.com',
         ];
 
+        //dump($slug, $this);
 
         return $this->render('article/show.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
