@@ -1,25 +1,108 @@
-.movie {
-    background: url("/images/base/kosmosBlack.jpg") no-repeat fixed ;
-    background-size: cover;
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("/images/base/BG-white.jpg");
+}
+/*-------------footer-----------*/
 
+footer{
+    color: #fff;
+    background-color: #221F20;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+footer img {
+    max-width: 110px;
+}
+
+footer .container .row{
+    align-items: center;
+}
+
+/*-------------movie-----------*/
+.movie {
+    background: url("/images/base/kosmosBlack.jpg") no-repeat fixed center;
+    background-size: cover;
+    margin: 0;
 }
 
 .movie .container .row{
-    height: 500px;
     align-items: center;
 }
-/*.movie .container .row .col-md-6{
-    border: solid 1px #5eb5e0;
-}*/
 
-
-.movie .container .row .col-md-6 img{
-    width: 100%
+.movie .container .row .col-lg-6 img{
+    width: 100%;
 }
 
-.carousel-indicators li {
+.movie .carousel-indicators li {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #ff1800;
+    background-color: #bb00ff;
+}
+
+.carousel-item img{
+    width: 100%;
+    min-width: 525px;
+    max-height: 295px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+/*-----------wrapper-----------*/
+.wrapper {
+    background-color: #ffffff;
+    padding: 0 25px;
+}
+
+/*-------------news-----------*/
+.news h2{
+    padding: 30px 0 ;
+}
+.news .card-img {
+    min-height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.news .card-body {
+    color: white;
+    background: #221F20;
+    border-radius: 0 5px 5px 0;
+}
+
+.news .news-link{
+    padding: 30px 0;
+}
+
+.news .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #221F20;
+    border-color: #221F20;
+}
+
+.news .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(25, 0, 100, 0.5);
+}
+/*-------------hero-----------*/
+.hero .jumbotron-fluid{
+    background-repeat: repeat;
+    background-image: url("/images/base/metalGrid.png");
+    background-size: 400px;
+    margin: 0;
+    color: white;
+}
+
+/*-------------article-----------*/
+.article .card-img-top {
+    max-height: 400px;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: 0 0;
 }

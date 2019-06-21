@@ -8,11 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/news/{slug}")
-     * @param $slug
+     * @Route("/article/{slug}")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function show($slug)
+    public function showArticle($slug)
     {
         $comments = [
             'Я съел нормальный камень один раз. Это НЕ на вкус, как бекон!',
@@ -20,9 +19,7 @@ class ArticleController extends AbstractController
             'Я тоже люблю бекон! Купи немного с моего сайта! bakinsomebacon.com',
         ];
 
-        //dump($slug, $this);
-
-        return $this->render('article/show.html.twig', [
+        return $this->render('article/article.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
             'comments' => $comments,
         ]);
