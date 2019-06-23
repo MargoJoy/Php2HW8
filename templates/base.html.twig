@@ -5,13 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Фильмы Marvel{% endblock %}</title>
+    <title>Marvel</title>
+
     {% block stylesheets %}
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
-
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {% endblock %}
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,14 +19,13 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Новости</a>
+                <a class="nav-link" href="#">Главная</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Персонажи</a>
+                <a class="nav-link" href="#">Новости</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">Админака</a>
@@ -37,6 +36,29 @@
 </nav>
 
 {% block body %}{% endblock %}
+
+<footer>
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm-6 frame">
+                <ul class="nav flex-column container">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Админка</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6 frame">
+                <img src="{{ asset('images/base/logo.png') }}" alt="">
+            </div>
+        </div>
+    </div>
+</footer>
 
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
