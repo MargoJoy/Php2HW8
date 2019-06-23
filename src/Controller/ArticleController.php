@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article/{slug}")
+     * @Route("/article/{slug}", name="article_show")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showArticle($slug)
