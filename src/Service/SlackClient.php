@@ -43,6 +43,5 @@ class SlackClient
                 ->withIcon(':ghost:')
                 ->setText($message);
             $this->slack->sendMessage($message);
-
     }
 }
