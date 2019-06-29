@@ -5,12 +5,13 @@
     <article class="article container">
         <h1>{{ article.title }}</h1>
         <div class="card mb-3">
-            <img src="{{ asset('images/base/kosmosBlack.jpg') }}" class="card-img-top" alt="...">
+            <img src="{{ asset( article.imagePath ) }}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Название карточки</h5>
+                <h5 class="card-title">{{ article.title }}</h5>
                 <div class="mine">
                     {{ article.content|cached_markdown }}
                 </div>
+                <span><i>{{ article.author }}</i></span>
             </div>
         </div>
     </article>

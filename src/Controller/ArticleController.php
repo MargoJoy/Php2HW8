@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Service\MarkdownHelper;
 use App\Service\SlackClient;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,7 +14,6 @@ class ArticleController extends AbstractController
 
     public function __construct(bool $isDebug)
     {
-        //dump($isDebug);die;
         $this->isDebug = $isDebug;
     }
     /**
@@ -24,18 +21,10 @@ class ArticleController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @param $slug
      */
-    public function showArticle($slug, SlackClient $slack, EntityManagerInterface $em)
+    public function showArticle(Article $article, SlackClient $slack)
     {
-        if ($slug === 'khaaaaaan') {
+        if ($article->getSlug() === 'khaaaaaan') {
             $slack->sendMessage('Kahn', 'Ah, Kirk, my old friend...');
-        }
-        /**
-         * @var Article $article
-         */
-        $repository = $em->getRepository(Article::class);
-        $article = $repository->findOneBy(['slug' => $slug]);
-        if (!$article) {
-            throw $this->createNotFoundException(sprintf('No article for slug "%s"', $slug));
         }
 
         $comments = [
@@ -50,4 +39,6 @@ class ArticleController extends AbstractController
             'comments' => $comments,
         ]);
     }
+
+
 }
