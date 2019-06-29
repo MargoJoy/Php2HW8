@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Service\MarkdownHelper;
 use App\Service\SlackClient;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,10 +24,18 @@ class ArticleController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @param $slug
      */
-    public function showArticle($slug, MarkdownHelper $markdownHelper, SlackClient $slack)
+    public function showArticle($slug, SlackClient $slack, EntityManagerInterface $em)
     {
         if ($slug === 'khaaaaaan') {
             $slack->sendMessage('Kahn', 'Ah, Kirk, my old friend...');
+        }
+        /**
+         * @var Article $article
+         */
+        $repository = $em->getRepository(Article::class);
+        $article = $repository->findOneBy(['slug' => $slug]);
+        if (!$article) {
+            throw $this->createNotFoundException(sprintf('No article for slug "%s"', $slug));
         }
 
         $comments = [
@@ -34,22 +44,10 @@ class ArticleController extends AbstractController
             'Я тоже люблю бекон! Купи немного с моего сайта! bakinsomebacon.com',
         ];
 
-        $articleContent = <<<EOF
-**Товарищи!** новая модель организационной деятельности требуют от нас анализа новых [предложений](https://github.com/). Не следует, однако забывать, что сложившаяся структура организации требуют от нас анализа новых предложений. Не следует, однако забывать, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение существенных финансовых и административных условий. Задача организации, в особенности же дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же дальнейшее развитие различных форм деятельности позволяет оценить значение дальнейших направлений развития. Не следует, однако забывать, что укрепление и развитие структуры требуют от нас анализа систем **массового участия**.
-
-Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет выполнять важные задания по разработке форм развития. Товарищи! постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения новых предложений. Повседневная практика показывает, что укрепление и развитие структуры представляет собой интересный эксперимент проверки дальнейших направлений развития. Не следует, однако забывать, что консультация с широким активом позволяет оценить значение существенных финансовых и административных условий. С другой стороны дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание модели развития. Таким образом реализация намеченных плановых заданий требуют от нас анализа существенных финансовых и административных условий.
-EOF;
-
-//        dump($cache); die;
-
-
-        $articleContent = $markdownHelper->parse($articleContent);
 
         return $this->render('article/article.html.twig', [
-            'title' => ucwords(str_replace('-', ' ', $slug)),
-            'slug' => $slug,
+            'article' => $article,
             'comments' => $comments,
-            'articleContent' => $articleContent,
         ]);
     }
 }

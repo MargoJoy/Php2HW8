@@ -3,15 +3,14 @@
 {% block body %}
 
     <article class="article container">
-        <h1>{{ title }}</h1>
+        <h1>{{ article.title }}</h1>
         <div class="card mb-3">
             <img src="{{ asset('images/base/kosmosBlack.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Название карточки</h5>
                 <div class="mine">
-                    {{ articleContent|raw }}
+                    {{ article.content|cached_markdown }}
                 </div>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
     </article>
