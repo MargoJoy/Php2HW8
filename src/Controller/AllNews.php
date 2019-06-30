@@ -8,19 +8,19 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomepageController extends AbstractController
+class AllNews extends AbstractController
 {
     /**
-     * @Route("/", name="app_homepage")
+     * @Route("/news", name="app_news")
      */
-    public function homepage(EntityManagerInterface $em)
+    public function allNews(EntityManagerInterface $em)
     {
         $repository = $em->getRepository(Article::class);
-        $articles = $repository->findBy([], ['id' => 'DESC'], 2);;
+        $articles = $repository->findAll();
 
-        return $this->render('article/homepage.html.twig', [
-            'articles' => $articles,
-
+        return $this->render('article/news.html.twig',
+            ['articles' => $articles,
         ]);
     }
+
 }
