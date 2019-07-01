@@ -22,7 +22,7 @@ final class Version20190628085415 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_23A0E66989D9B62 ON article (slug)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_23A0E66989D9B62 ON pages (slug)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20190628085415 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP INDEX UNIQ_23A0E66989D9B62 ON article');
+        $this->addSql('DROP INDEX UNIQ_23A0E66989D9B62 ON pages');
     }
 }

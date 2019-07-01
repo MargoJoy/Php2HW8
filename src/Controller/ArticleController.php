@@ -17,7 +17,7 @@ class ArticleController extends AbstractController
         $this->isDebug = $isDebug;
     }
     /**
-     * @Route("/article/{slug}", name="article_show")
+     * @Route("/pages/{slug}", name="article_show")
      * @return \Symfony\Component\HttpFoundation\Response
      * @param $slug
      */
@@ -35,7 +35,7 @@ class ArticleController extends AbstractController
 
 
         return $this->render('article/article.html.twig', [
-            'article' => $article,
+            'pages' => $article,
             'comments' => $comments,
         ]);
     }

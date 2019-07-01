@@ -102,6 +102,10 @@ footer .container .row{
 .news .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(25, 0, 100, 0.5);
 }
+/*-------------all_news-----------*/
+.all_news{
+    min-height: 82vh;
+}
 /*-------------hero-----------*/
 .hero .jumbotron-fluid{
     background-repeat: repeat;
@@ -111,7 +115,7 @@ footer .container .row{
     color: white;
 }
 
-/*-------------article-----------*/
+/*-------------pages-----------*/
 .article .card-img-top {
     max-height: 400px;
     border-radius: 0;
