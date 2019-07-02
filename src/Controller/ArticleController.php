@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Tag;
 use App\Service\SlackClient;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,16 +28,13 @@ class ArticleController extends AbstractController
             $slack->sendMessage('Kahn', 'Ah, Kirk, my old friend...');
         }
 
-        $comments = [
-            'Я съел нормальный камень один раз. Это НЕ на вкус, как бекон!',
-            'Woohoo! Я иду на полностью астероидную диету!',
-            'Я тоже люблю бекон! Купи немного с моего сайта! bakinsomebacon.com',
-        ];
-
+//        $article->addTag($tags);
+//
+//        dd($tags);
 
         return $this->render('article/article.html.twig', [
-            'pages' => $article,
-            'comments' => $comments,
+            'article' => $article,
+
         ]);
     }
 

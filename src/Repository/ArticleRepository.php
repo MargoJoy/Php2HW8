@@ -26,8 +26,9 @@ class ArticleRepository extends ServiceEntityRepository
     public function findAllWithSearch(?string $term)
     {
         $qb = $this->createQueryBuilder('n');
+
         if ($term) {
-            $qb->andWhere('n.content LIKE :term OR n.title LIKE :term')
+            $qb->andWhere('n.content LIKE :term OR n.title LIKE :term OR n.author LIKE :term')
                 ->setParameter('term', '%' . $term . '%')
             ;
         }
