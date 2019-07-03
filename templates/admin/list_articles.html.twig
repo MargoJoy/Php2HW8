@@ -10,6 +10,7 @@
         <tr>
             <th>Заголовок</th>
             <th>Автор</th>
+            <th>Управление</th>
         </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
             <tr>
                 <td><a href="{{ path('app_article_edit', {id: article.id}) }}">{{ article.title }}</a></td>
                 <td>{{ article.author }}</td>
+                <td><a href="{{ path('article_admin_delete', {id: article.id}) }}">Удалить</a></td>
 
             </tr>
         {% endfor %}
