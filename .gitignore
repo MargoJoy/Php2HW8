@@ -8,4 +8,4 @@
 /vendor/
 ###< symfony/framework-bundle ###
 /.idea
-/public/sss.yaml
+public/sss.yaml

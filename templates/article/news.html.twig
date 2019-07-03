@@ -42,6 +42,11 @@
                         </div>
                     </div>
                 </div>
+
+            {% if   app.request.query.get('q') %}
+                <a href="{{ path('app_news') }}">Вернуться назад?</a>
+            {% endif %}
+
             {% else %}
                 <div><span>Ни чего не найдено <b><a href="{{ path('app_news') }}">Вернуться назад?</a></b></span> </div>
             {% endfor %}

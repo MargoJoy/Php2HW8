@@ -9,7 +9,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ article.title }}</h5>
                 {% for tag in article.tags %}
-                    <h2 class="badge badge-secondary">{{ tag.name }}</h2>
+                    <span class="badge badge-secondary">{{ tag.name }}</span>
                 {% endfor %}
                 <div class="mine">
                     {{ article.content|cached_markdown }}
