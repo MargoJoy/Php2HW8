@@ -10,17 +10,14 @@
         <tr>
             <th>Заголовок</th>
             <th>Автор</th>
-            <th>Published?</th>
         </tr>
         </thead>
         <tbody>
         {% for article in articles %}
             <tr>
-                <td>{{ article.title }}</td>
+                <td><a href="{{ path('app_article_edit', {id: article.id}) }}">{{ article.title }}</a></td>
                 <td>{{ article.author }}</td>
-                <td>
-                    <span class="fa fa"></span>
-                </td>
+
             </tr>
         {% endfor %}
         </tbody>

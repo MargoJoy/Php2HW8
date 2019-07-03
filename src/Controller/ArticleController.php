@@ -18,7 +18,7 @@ class ArticleController extends AbstractController
         $this->isDebug = $isDebug;
     }
     /**
-     * @Route("/pages/{slug}", name="article_show")
+     * @Route("/article/{slug}", name="article_show")
      * @return \Symfony\Component\HttpFoundation\Response
      * @param $slug
      */

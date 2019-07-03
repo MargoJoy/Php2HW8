@@ -4,12 +4,9 @@
 
 <article class="container wrapper edit">
     <h1>Форма Создания статьи</h1>
-    {{ form_start(articleForm) }}
-        {{ form_row(articleForm.title) }}
-        {{ form_row(articleForm.content) }}
-        {{ form_row(articleForm.author) }}
-    <button type="submit" class="btn btn-primary">Создать</button>
-    {{ form_end(articleForm) }}
+   {{ include('form/_form.html.twig', {
+       button_text: 'Создать'
+   }) }}
 </article>
 
 {% endblock %}
