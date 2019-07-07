@@ -5,7 +5,7 @@
     <article class="article container">
         <h1>{{ article.title }}</h1>
         <div class="card mb-3">
-            <img src="{{ asset( article.imagePath ) }}" class="card-img-top" alt="...">
+            <img src="{{ uploaded_asset(article.imagePath) }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ article.title }}</h5>
                 {% for tag in article.tags %}
